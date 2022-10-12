@@ -1,0 +1,30 @@
+---
+title: "Discretized-differential Approximation"
+author: "Patrick Neyland"
+date: '2022-10-12'
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+$\frac{dk(t)}{dt} = rk(t) + sw(t)$ for $t \in [T,\overline{T}]$
+
+```{r}
+discrete_approx <- function()
+
+
+q0 <- 1
+q1 <- 0.0315
+q2 <- -0.00062
+r <- 0.035
+w <- 50000
+s <- 0.1
+T <- 40
+Tbar <- 55
+k_Tbar <- 0
+A_approx <- 
+dt <- 0.01
+```
+
