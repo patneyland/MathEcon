@@ -8,8 +8,15 @@ output: word_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+This is the first system of differential equations covered in my Math Methods for Econ and Finance II class. It is an equation for 401(k) Asset Accumulation. 
+$\frac{dk(t)}{dt} = rk(t) + sw(t)$ for $t \in [0,T]$
+$\frac{dk(t)}{dt} = rk(t) - A$ for $t \in [T,\overline{T}]$
+$k$ is the savings/financial(401k) account balance
+$w$ is income
+$s$ is savings rate
+$r$ is interest rate
 
-$\frac{dk(t)}{dt} = rk(t) + sw(t)$ for $t \in [T,\overline{T}]$
+While this problem, with constant variables, can be solved analytically, this script seeks to solve it numerically to practice for more complex instances that cannot be solved analytically. 
 
 ```{r}
 discrete_approx <- function()
