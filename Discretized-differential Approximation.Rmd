@@ -33,5 +33,19 @@ Tbar <- 55
 k_Tbar <- 0
 A_approx <- 
 dt <- 0.01
+
+t <- seq(0 , Tbar, dt)
+qt <- (q0 + q1*t + q2*t^2)
+wt <- w*qt
+df <- data.frame(t,wt)
+kt_0
+kt_approx <- if(t<=T){
+                
+            } else{
+  
+            }
+
+
+head(df)
 ```
 
