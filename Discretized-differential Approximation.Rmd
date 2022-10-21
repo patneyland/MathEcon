@@ -19,7 +19,7 @@ $r$ is interest rate
 While this problem, with constant variables, can be solved analytically, this script seeks to solve it numerically to practice for more complex instances that cannot be solved analytically. 
 
 ```{r}
-discrete_approx <- function()
+# discrete_approx <- function()
 
 
 q0 <- 1
@@ -37,15 +37,43 @@ dt <- 0.01
 t <- seq(0 , Tbar, dt)
 qt <- (q0 + q1*t + q2*t^2)
 wt <- w*qt
-df <- data.frame(t,wt)
-kt_0
-kt_approx <- if(t<=T){
-                
-            } else{
-  
-            }
+df <- data.frame(t,wt, kt_prev, kt_approx)
+kt_approx <- seq(0, Tbar, dt)
+kt_prev <- c(0, kt_approx[-length(kt_approx)])
+kt_approx <- kt_prev+
 
 
 head(df)
+```
+
+```{r}
+# time intervals: a sequence from zero to ten at 0.5 steps
+    time <- seq(0, 55, by = 0.1)
+    # initial condition
+    r <- 0.05
+    s <- 0.1
+    w <- 50000
+    A <- (s*w)/r^2*exp(-r)
+    x0 <- 0
+    ## The function to be integrated (right-hand expression of the derivative above)
+    f1 <- function(x){
+      if(time<=40){r*x + s*w}
+      else {r*x - A}
+    }
+    
+    ## An empty R vector to store the results
+    x <- c()
+    ## Store the initial condition in the first position of the vector
+    x[1] <- x0
+    
+    # loop over time: approximate the function at each time step
+    for (i in 1:(length(time)-1)){
+        x[i+1] = x[i] + 0.1 * f1(x[i])
+    }
+    
+    # plotting 
+    plot(x~time)
+    legend("topleft", c("approximation"), 
+           pch=c(1,NA), lty=c(NA,1))
 ```
 
